@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Zyndy Unlock Copy",
+  "version": "1.1.0",
+  "description": "Simpan isi artikel (teks + gambar) ke file Word DOCX, dan aktifkan kembali seleksi teks, copy, dan klik kanan di halaman yang memblokirnya.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Zyndy Unlock Copy",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}
